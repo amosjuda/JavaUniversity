@@ -1,14 +1,16 @@
 package atvMapaAdsisProgramação1Entities;
 
+import javax.swing.JOptionPane;
+
 public class Exames {
     private String nome;
-    private int tipoSanguineo;
+    private String tipoSanguineo;
     private int anoNascimento;
     
     public Exames(){
     }
 
-    public Exames(String nome, int tipoSanguineo, int anoNascimento) {
+    public Exames(String nome, String tipoSanguineo, int anoNascimento) {
         this.nome = nome;
         this.tipoSanguineo = tipoSanguineo;
         this.anoNascimento = anoNascimento;
@@ -22,11 +24,11 @@ public class Exames {
         this.nome = nome;
     }
 
-    public int getTipoSanguineo() {
+    public String getTipoSanguineo() {
         return tipoSanguineo;
     }
 
-    public void setTipoSanguineo(int tipoSanguineo) {
+    public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
     }
 
@@ -36,5 +38,15 @@ public class Exames {
 
     public void setAnoNascimento(int anoNascimento) {
         this.anoNascimento = anoNascimento;
+    }
+    
+    public void cadastrarExame(){
+        this.nome = JOptionPane.showInputDialog("Digite o nome o nome:  ");
+        this.tipoSanguineo = JOptionPane.showInputDialog("Digite o tipo sanguíneo:  ");
+        String SAnoNascimento = JOptionPane.showInputDialog("Digite o ano de nascimento:  ");
+        this.anoNascimento = Integer.parseInt(SAnoNascimento);
+    }
+    
+    public void mostrarResultado(){
     }
 }
