@@ -26,6 +26,7 @@ public class ExGlicemia extends Exames{
     @Override
     public void mostrarResultado() {
         super.mostrarResultado();
+        classificarGlicemia();
         JOptionPane.showMessageDialog(null, "Nome: " + getNome() + "\nResultado: " + quantGlicose + "\nClassificação: " + resultadoGlicemia );
     }
 }

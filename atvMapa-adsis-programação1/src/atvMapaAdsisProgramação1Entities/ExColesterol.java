@@ -66,6 +66,8 @@ public class ExColesterol extends Exames{
     @Override
     public void mostrarResultado() {
         super.mostrarResultado();
-        JOptionPane.showMessageDialog(null, "Nome: " + getNome() +  "\nResultado LDL: " + LDL +"\nResultado HDL: " + HDL + "\nResultado de risco: " + risco +"\nClassificação: " + LDLclass+ "\n" + HDLclass);
+         classificarColesterolLDL();
+         classificarColesterolHDL();
+         JOptionPane.showMessageDialog(null,"Nome: " + getNome() +  "\nResultado LDL: " + LDL +"\nResultado HDL: " + HDL + "\nResultado de risco: " + risco +"\nClassificação: " + LDLclass+ "\n" + HDLclass);
     }
 }

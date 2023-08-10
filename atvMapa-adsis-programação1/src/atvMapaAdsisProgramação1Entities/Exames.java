@@ -41,7 +41,7 @@ public class Exames {
     }
     
     public void cadastrarExame(){
-        this.nome = JOptionPane.showInputDialog("Digite o nome o nome:  ");
+        this.nome = JOptionPane.showInputDialog("Digite o nome:  ");
         this.tipoSanguineo = JOptionPane.showInputDialog("Digite o tipo sanguíneo:  ");
         String SAnoNascimento = JOptionPane.showInputDialog("Digite o ano de nascimento:  ");
         this.anoNascimento = Integer.parseInt(SAnoNascimento);
