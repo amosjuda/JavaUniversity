@@ -5,7 +5,7 @@
 package br.edu.unicesumar.view;
 
 import br.edu.unicesumar.core.entity.Produto;
-import br.edu.unicesumar.core.entity.dao.ProdutoDAO;
+import br.edu.unicesumar.core.dao.ProdutoDAO;
 import javax.swing.JOptionPane;
 
 /**
