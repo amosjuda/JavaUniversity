@@ -141,12 +141,18 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(validarCampos()){
-            Usuario u = new Usuario();
-            u.setLogin(campoLogin.getText());
-            u.setSenha(campoSenha.getText());
+            String login = campoLogin.getText();
+            String senha = campoLogin.getText();
             
             ProgramaDAO pdao = new ProgramaDAO();
-            pdao.entrar(u);
+            Usuario u = pdao.buscarLogin(login, senha);
+            
+            if(u != null){
+                JOptionPane.showMessageDialog(null, "Acesso Autorizado!!");
+            } else {
+                 JOptionPane.showMessageDialog(rootPane, "Acesso Negado!!", "Atenção!", JOptionPane.WARNING_MESSAGE);
+            }
+            
             limparTela();
         }
         
@@ -163,7 +169,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         return true;
     }
-    
     private void limparTela(){
         campoLogin.setText("");
         campoSenha.setText("");

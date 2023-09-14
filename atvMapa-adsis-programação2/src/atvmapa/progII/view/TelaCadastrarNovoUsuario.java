@@ -4,6 +4,8 @@
  */
 package atvmapa.progII.view;
 
+import atvmapa.progII.core.dao.ProgramaDAO;
+import atvmapa.progII.core.entity.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -122,12 +124,28 @@ public class TelaCadastrarNovoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-        limparTela();
-        JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+        if(validarCampos()){
+         Usuario u = new Usuario();
+         u.setNome(campoNome.getText());
+         u.setLogin(campoLogin.getText());
+         u.setSenha(campoSenha.getText());
+         u.setEmail(campoEmail.getText());
+         
+         ProgramaDAO pdao = new ProgramaDAO();
+         pdao.inserir(u);
+         
+         limparTela();
+        JOptionPane.showMessageDialog(rootPane, "Cadastrado efetuado com sucesso!!", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public boolean validarCampos(){
+        if(campoNome.getText().equals("") || campoLogin.getText().equals("") || campoSenha.getText().equals("") || campoEmail.getText().equals("")){
+           JOptionPane.showMessageDialog(rootPane, "Login e Senha são obrigatórios!!", "ERRO", JOptionPane.ERROR_MESSAGE);
+           return false;
+        }
+        return true;
+    }
      private void limparTela(){
         campoLogin.setText("");
         campoSenha.setText("");
